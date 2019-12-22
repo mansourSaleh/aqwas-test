@@ -1,46 +1,79 @@
 import React from "react";
+
 import "./custom.scss";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Row, Col } from "react-bootstrap";
-// import "bootswatch/dist/minty/bootstrap.min.css";
 import "./App.css";
-import bg from "./images/map.png";
-import { IconHome, Setting } from "./icons";
+import Suggest from "./pages/Suggest";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { getRandomRestaurant } from './api'
 
-function App() {
+class App extends React.Component {
+
+
+ constructor(props){
+   super(props)
+   this.state = {
+    restaurant: {
+      error: "no",
+      name: "JOLT (جولت)",
+      id: "5b0acd468173cb002c6aa61d",
+      link: "https://foursquare.com/v/5b0acd468173cb002c6aa61d",
+      cat: "Coffee Shop",
+      catId: "4bf58dd8d48988d1e0931735",
+      rating: "-1",
+      lat: 26.303903001796,
+      lon: 50.202211967507,
+      Ulat: 50.2017993,
+      Ulon: 26.2716025,
+      open: "",
+      image: []
+    },
+    loading: false,
+    showResult: false
+   }
+ }
+
+ handleGetRandom = () => {
+console.log("dddd")
+this.setState({
+  loading: true
+})
+  getRandomRestaurant()
+    .then(res => {
+      console.log(res.data)
+      const restaurant = res.data
+     this.setState({
+      restaurant, loading: false, showResult: true
+     },)
+     
+    })
+    .catch(error => {
+      console.error(error)
+    })
+ 
+
+ 
+}
+
+render(){
+  const { restaurant, loading, showResult} = this.state;
   return (
+    <Router>
     <div className="App">
-      <img src={bg} className="bg" />
-      <section className="page-wrap">
-        <Container>
-          <Row>
-            <Col>
-            <IconHome />
-            </Col>
+   
 
-          </Row>
-          
-        {/* <section className="justify"> */}
-
-          <Row className="justify">
-            <Col xs={2} lg={1} className="marginH">
-              <Setting />
-            </Col>
-           
-            
-           <Col xs={6} lg={3} >
-
-              <Button style={{borderRadius: 10}} block  className="myButton" color="primary">
-                اقتراح
-              </Button>
-           </Col>
-           
-            </Row>
-        {/* </section> */}
-        </Container>
-      </section>
+    <Switch>
+      <Route exact path="/" render={(props) => (
+        <Home {...props} showResult={showResult} loading={loading} handleGetRandom={this.handleGetRandom} />
+      )} />
+      <Route exact path="/suggest"  render={(props) => (
+        <Suggest {...props} restaurant={restaurant} />
+      )} /> 
+    </Switch>
     </div>
+    </Router>
   );
+      }
 }
 
 export default App;
