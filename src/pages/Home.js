@@ -1,15 +1,12 @@
 import React from "react";
-// import "./custom.scss";
-import { Button, Container, Row, Col } from "react-bootstrap";
-// import "./App.css";
+
+import { Container, Row, Col } from "react-bootstrap";
+
 import bg from "../images/map.png";
-import { IconHome, Setting } from "../icons";
-// import { Link } from 'react-router-dom'
+import { IconHome } from "../icons";
+import { Redirect } from "react-router-dom";
+import SuggestButton from "../components/suggestButton";
 const Home = props => {
-  // console.log(props.handleGetRandom)
-  if (props.showResult) {
-    props.history.push("/suggest");
-  }
   return (
     <div className="App">
       <img src={bg} className="bg" alt="google map" />
@@ -20,27 +17,15 @@ const Home = props => {
               <IconHome />
             </Col>
           </Row>
-
-          <Row className="justify">
-            <Col xs={2} lg={1} className="marginH">
-              <Setting />
-            </Col>
-
-            <Col xs={6} lg={3}>
-              <Button
-                style={{ borderRadius: 10 }}
-                block
-                className="myButton"
-                color="primary"
-                onClick={props.handleGetRandom}
-              >
-                {/* {props.loading ? "loading" : "اقتراح"} */}
-                test
-              </Button>
-            </Col>
-          </Row>
+          <SuggestButton
+            text="اقتراح"
+            colors="danger"
+            handleGetRandom={props.handleGetRandom}
+            loading={props.loading}
+          />
         </Container>
       </section>
+      {props.showResult && <Redirect to="/suggest" />}
     </div>
   );
 };

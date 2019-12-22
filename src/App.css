@@ -38,10 +38,14 @@ img.bg {
 }
 
 .myButton{
-  color: rgba(29, 98, 99, 1);;
+  color: rgba(29, 98, 99, 1);
   font-weight: 800;
   font-size: 2rem;
   border-radius: 30;
+}
+
+.restaurantName{
+  color:  rgba(29, 98, 99, 0.95);
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
