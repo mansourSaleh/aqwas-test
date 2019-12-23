@@ -1,4 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can see a Demo of this App of  [Ween Nakel](https://mansoursaleh.github.io/aqwas-test).
+
+## Featuer Added:
+- Error handling in case a user types in the url a wrong path.
+- goolge map component.
+- Manage all potential response from the stranger API.
 
 ## Available Scripts
 
