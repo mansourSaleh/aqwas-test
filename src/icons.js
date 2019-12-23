@@ -16,8 +16,8 @@ export const Setting = () => (
     size={60}
     style={{
       color: "rgba(29, 98, 99, 1)",
-      marginRight: 10,
-      marginLeft: 10,
+      marginRight: 20,
+      marginLeft: 20,
       backgroundColor: "rgb(224, 242, 242)",
       borderRadius: 10
     }}

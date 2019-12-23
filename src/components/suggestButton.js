@@ -16,7 +16,7 @@ const SuggestButton = props => {
 
       <Col xs={6} lg={3}>
         <Button
-          style={{ borderRadius: 10 }}
+          style={{ borderRadius: 10, marginLeft: "20px" }}
           block
           className="myButton"
           color={"danger"}
