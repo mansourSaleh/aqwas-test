@@ -1,5 +1,6 @@
 {
   "name": "eqtrah",
+  "homepage": "https://<USERNAME>.github.io/<REPO NAME>",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +13,6 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
     "bootswatch": "^4.4.1",
-    "gh-pages": "^2.1.1",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
