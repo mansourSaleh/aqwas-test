@@ -46,8 +46,8 @@ const Hero = props => {
       fluid
       style={styles.container}
     >
-      <Row style={{ paddingTop: "40px" }}>
-        <Col>
+      <Row style={{ paddingTop: "40px"}}>
+        <Col  className="justify">
         {/* Name of the restaurant */}
           <h3 className="restaurantName">
             {englishName ? `${englishName} | ${arabicName}` : name}
