@@ -1,11 +1,13 @@
 import React from "react";
-
+import { Redirect } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+
 
 import bg from "../images/map.png";
 import { IconHome } from "../icons";
-import { Redirect } from "react-router-dom";
 import SuggestButton from "../components/suggestButton";
+
+
 const Home = props => {
   return (
     <div className="App">
@@ -17,6 +19,7 @@ const Home = props => {
               <IconHome />
             </Col>
           </Row>
+          {/* the suggest button */}
           <SuggestButton
             text="اقتراح"
             colors="danger"
@@ -25,6 +28,7 @@ const Home = props => {
           />
         </Container>
       </section>
+      {/* if we get the data from the API redirect to the data page */}
       {props.showResult && <Redirect to="/suggest" />}
     </div>
   );

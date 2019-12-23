@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import logo from "../images/logo-headers.png";
-export class MyNav extends Component {
-  render() {
+ const MyNav = () => {
+ 
     return (
       <>
         <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
@@ -20,7 +20,7 @@ export class MyNav extends Component {
         </Navbar>
       </>
     );
-  }
+  
 }
 
 export default MyNav;

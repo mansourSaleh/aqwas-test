@@ -1,9 +1,9 @@
 @import "node_modules/bootstrap/scss/functions";
     @import "node_modules/bootstrap/scss/variables";
-// change the theme
+// override the  bootstrap theme
 $theme-colors: (
     "primary": rgb(224, 242, 242),
-    "danger": #000,
+    
     "secondary": #2CB3B5
     );
     @import '~bootstrap/scss/bootstrap.scss';
@@ -11,16 +11,4 @@ $theme-colors: (
 
 
 
-    // const {lat, lon, Ulat, Ulon} = this.props.restaurant;
-    // this.delayedShowMarker()
-    // if( typeof(lat) == "number"){
-    //     this.setState({
-    //       lat,
-    //       lon
-    //     })
-    // }else{
-    //   this.setState({
-    //     lat: Ulat,
-    //     lon: Ulon
-    //   })
-    // }
+    

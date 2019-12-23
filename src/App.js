@@ -6,6 +6,7 @@ import Suggest from "./pages/Suggest";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { getRandomRestaurant } from "./api";
+import Error from "./pages/Error";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends React.Component {
       restaurant: {},
       loading: false,
       showResult: false,
+      // Default location for the map
       lat: 26.303903001796,
       lon: 50.202211967507
     };
@@ -25,6 +27,7 @@ class App extends React.Component {
     this.showCurrentLocation();
   }
 
+  // Get the current location
   showCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
@@ -44,6 +47,7 @@ class App extends React.Component {
     this._isMount = false;
   }
 
+  // When user click "اقتراح"
   handleGetRandom = () => {
     const { lat, lon } = this.state;
 
@@ -52,9 +56,16 @@ class App extends React.Component {
         loading: true
       });
     }
+    // Calling the API
     getRandomRestaurant(lon, lat)
       .then(res => {
         const restaurant = res.data;
+        // Handling Errors from the API
+        if (restaurant.error === "No results found") {
+          alert("خطأ في السيرفر , حاول مرة أخرى");
+          this.setState({ loading: false });
+          return;
+        }
         if (this._isMount) {
           this.setState({
             restaurant,
@@ -66,7 +77,7 @@ class App extends React.Component {
       .catch(error => {
         console.error(error);
         if (this._isMount) {
-          this.setState({ loading: false });
+          this.setState({ loading: false, showResult: false });
         }
         alert("خطأ في السيرفر , حاول مرة أخرى");
       });
@@ -76,35 +87,35 @@ class App extends React.Component {
     const { restaurant, loading, showResult } = this.state;
     return (
       <Router>
-        <div className="App">
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <Home
-                  {...props}
-                  showResult={showResult}
-                  loading={loading}
-                  handleGetRandom={this.handleGetRandom}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/suggest"
-              render={props => (
-                <Suggest
-                  {...props}
-                  restaurant={restaurant}
-                  showResult={showResult}
-                  loading={loading}
-                  handleGetRandom={this.handleGetRandom}
-                />
-              )}
-            />
-          </Switch>
-        </div>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Home
+                {...props}
+                showResult={showResult}
+                loading={loading}
+                handleGetRandom={this.handleGetRandom}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/suggest"
+            render={props => (
+              <Suggest
+                {...props}
+                restaurant={restaurant}
+                showResult={showResult}
+                loading={loading}
+                handleGetRandom={this.handleGetRandom}
+              />
+            )}
+          />
+          {/* In case the user type any thing in the URL  field it will show hem this custom error page */}
+          <Route component={Error} />
+        </Switch>
       </Router>
     );
   }

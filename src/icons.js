@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "react-icons-kit";
 import { ic_local_dining } from "react-icons-kit/md/ic_local_dining";
 import { iosSettingsStrong } from "react-icons-kit/ionicons/iosSettingsStrong";
-
+// One place to mange all the Icon to be easy to mange and change
 export const IconHome = () => (
   <Icon
     size={200}
