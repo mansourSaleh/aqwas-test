@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/aqwas-test/static/css/main.446dcc86.chunk.css",
-    "main.js": "/aqwas-test/static/js/main.eca2c373.chunk.js",
-    "main.js.map": "/aqwas-test/static/js/main.eca2c373.chunk.js.map",
+    "main.js": "/aqwas-test/static/js/main.966bf944.chunk.js",
+    "main.js.map": "/aqwas-test/static/js/main.966bf944.chunk.js.map",
     "runtime-main.js": "/aqwas-test/static/js/runtime-main.c8fde2e2.js",
     "runtime-main.js.map": "/aqwas-test/static/js/runtime-main.c8fde2e2.js.map",
     "static/js/2.a409614b.chunk.js": "/aqwas-test/static/js/2.a409614b.chunk.js",
     "static/js/2.a409614b.chunk.js.map": "/aqwas-test/static/js/2.a409614b.chunk.js.map",
     "index.html": "/aqwas-test/index.html",
-    "precache-manifest.173fc91fca57650eb93482cdba9d6678.js": "/aqwas-test/precache-manifest.173fc91fca57650eb93482cdba9d6678.js",
+    "precache-manifest.f40de23f207078e67b79ac9d85449787.js": "/aqwas-test/precache-manifest.f40de23f207078e67b79ac9d85449787.js",
     "service-worker.js": "/aqwas-test/service-worker.js",
     "static/css/main.446dcc86.chunk.css.map": "/aqwas-test/static/css/main.446dcc86.chunk.css.map",
     "static/js/2.a409614b.chunk.js.LICENSE": "/aqwas-test/static/js/2.a409614b.chunk.js.LICENSE",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.c8fde2e2.js",
     "static/js/2.a409614b.chunk.js",
     "static/css/main.446dcc86.chunk.css",
-    "static/js/main.eca2c373.chunk.js"
+    "static/js/main.966bf944.chunk.js"
   ]
 }
